@@ -1,0 +1,51 @@
+﻿@model IEnumerable<demolun.LIBRO>
+
+@{
+    ViewBag.Title = "Index";
+}
+<center>
+    <h1>Libros de la bilblioteca  </h1>
+    @using (Html.BeginForm("Index", "demo", FormMethod.Post))
+    {
+        <span>Fecha de inicio</span><input type="date" name="start" required />
+        <span>Fecha de final</span><input type="date" name="end" required/>
+        <input type="submit" value="obtener listas" />
+
+   
+
+  
+
+   
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AUTOR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMBRE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AUTOR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FECHA)
+                </td>
+                
+            </tr>
+        }
+
+    </table>
+    }
+</center>
